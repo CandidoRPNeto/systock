@@ -7,23 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/"><-</a>
+    <a href="/item"><-</a>
 
-    <form action="/update/{{$item->id}}" method="post">
+    <form action="/item/update/{{$item->id}}" method="post">
         @csrf
-
         <label>Nome</label>
-        <input type="text" name="nome" value="{{$item->nome}}" required>
+        <input type="text" name="nome" value='{{$item->nome}}' required>
         <label>Fabricante</label>
-        <input type="text" name="fabricante" value="{{$item->fabricante}}" required>
+        <input type="text" name="fabricante" value='{{$item->fabricante}}' required>
         <label>Fornecedor</label>
-        <input type="text" name="fornecedor" value="{{$item->fornecedor}}" required>
+        <input type="text" name="fornecedor" value='{{$item->fornecedor}}' required>
         <label>Grupo de Item</label>
         <select required name="grupo_item_id" >
-            <option value="0">NONE</option>
-            {{-- @foreach ( as )
-            <option value=""></option>
-            @endforeach --}}
+            <option value="0">None</option>
+            @foreach ($grupos as $grupo)
+            <option value="{{$grupo->id}}">{{$grupo->nome}}</option>
+            @endforeach
+        </select>
+        <label>Quantidade</label>
+        <input type="number" name="quantidade" value='{{$item->quantidade}}' required>
+        <label>Preco</label>
+        <input type="number" name="preco" value='{{$item->preco}}' required>
+        <label>Ativo</label>
+        <select required name="ativo" >
+            <option value="0">True</option>
+            <option value="1">False</option>
         </select>
         <button type="submit">Enviar</button>
     </form>

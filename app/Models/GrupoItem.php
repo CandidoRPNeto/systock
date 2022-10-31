@@ -9,7 +9,7 @@ class GrupoItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['nome'];
 
     public function item(): HasMany
     {

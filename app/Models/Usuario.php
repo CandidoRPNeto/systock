@@ -9,7 +9,7 @@ class Usuario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cpf'];
+    protected $fillable = ['nome','email','senha','telefone','endereco','tipo','cpf'];
 
     public function pessoa(){
         return $this->morphMany('App/Pessoa','pessoable');

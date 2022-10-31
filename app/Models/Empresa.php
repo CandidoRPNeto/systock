@@ -9,7 +9,7 @@ class Empresa extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cnpj'];
+    protected $fillable = ['nome','email','senha','telefone','endereco','tipo','cnpj'];
 
     public function pessoa(){
         return $this->morphMany('App/Pessoa','pessoable');

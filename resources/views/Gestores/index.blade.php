@@ -7,17 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Lista</h1>
     <a href="/">Logout</a>
-    <a href="/group/create">+Group+</a>
-    <a href="/item/create">+Item+</a>
-    @foreach ($itens as $item)
-    {{$item->nome}}
-    <form action="/item/delete/{{$item->id}}" method="post">
+    <a href="/gestores/create">+</a>
+    @foreach ($gestores as $gestor)
+    {{$gestor->nome}}
+    <form action="/gestores/delete/{{$gestor->id}}" method="post">
         @csrf @method('DELETE')
         <button type="submit">-</button>
     </form>
-    <a href="/item/edit/{{$item->id}}">></a>
+    <a href="/gestores/edit/{{$gestor->id}}">></a>
     @endforeach
 </body>
 </html>
