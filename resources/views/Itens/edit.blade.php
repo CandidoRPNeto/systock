@@ -21,7 +21,11 @@
         <select required name="grupo_item_id" >
             <option value="0">None</option>
             @foreach ($grupos as $grupo)
+            @if ({{$grupo->id}} === {{$item->grupo_item_id}})
+            <option value="{{$grupo->id}}" selected>{{$grupo->nome}}</option>
+            @else
             <option value="{{$grupo->id}}">{{$grupo->nome}}</option>
+            @endif
             @endforeach
         </select>
         <label>Quantidade</label>
@@ -30,8 +34,13 @@
         <input type="number" name="preco" value='{{$item->preco}}' required>
         <label>Ativo</label>
         <select required name="ativo" >
-            <option value="0">True</option>
+            @if ({{$item->ativo}} === 0)
+            <option value="0" selected>True</option>    
             <option value="1">False</option>
+            @else
+            <option value="0">True</option>  
+            <option value="1" selected>False</option>
+            @endif
         </select>
         <button type="submit">Enviar</button>
     </form>
