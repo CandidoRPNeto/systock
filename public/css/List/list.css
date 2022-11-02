@@ -1,0 +1,42 @@
+.create-b{
+    display: flex;
+    margin-left: -30rem;
+    justify-content: flex-end;
+}
+.create-b a{
+    text-decoration: none;
+    color: #FFD3BC;
+    background-color: #460032;
+    text-align: center;
+    margin: 0.5rem;
+    padding: 15px;
+    border-radius: 60px;
+}
+
+.create-b :hover{
+    background-color: #df0055;
+    transition: 0.3s;
+}
+
+.tabela{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela tr{
+    text-align: left;
+    border-bottom: solid 1px #460032;
+}
+
+.item-lista label{
+    display: flex;
+    align-items: center;
+}
+
+.item-lista .left-b{
+    justify-content: flex-end;
+}
+
+.space{
+    width: 162px;
+}
