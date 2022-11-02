@@ -10,12 +10,12 @@ class ItemController extends Controller
 {
     public function list()
     {
-        return view('Itens/list',['itens' => Item::where('ativo','=',0)->get()]);
+        return view('Itens/list',['itens' => Item::where('ativo','=',0)->get(),'grupos' => GrupoItem::all()]);
     }
 
     public function index()
     {
-        return view('Itens/index',['itens' => Item::all()]);
+        return view('Itens/index',['itens' => Item::all(),'grupos' => GrupoItem::all()]);
     }
 
     public function create()
@@ -25,13 +25,18 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        Item::create($request->all());
-        return redirect('/item');
+        if($request->ativo != "disabled" && $request->grupo_item_id != "disabled"){
+            Item::create($request->all());
+            return redirect('/item');
+        }
+        else{
+            return redirect('/item/create');
+        }
     }
 
     public function show($id)
     {
-        return view('Itens/show',['item' => Item::findOrFail($id)]);
+        return view('Itens/show',['item' => Item::findOrFail($id),'grupos' => GrupoItem::all()]);
     }
     
     public function edit($id)
@@ -55,7 +60,6 @@ class ItemController extends Controller
             'fabricante' => $request->fabricante,
             'fornecedor' => $request->fornecedor,
             'grupo_item_id' => $request->grupo_item_id,
-            'quantidade' => $request->quantidade,
             'preco' => $request->preco,
             'ativo' => $request->ativo
         ]);
