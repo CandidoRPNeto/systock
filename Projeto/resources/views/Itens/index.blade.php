@@ -14,7 +14,7 @@
 <body>
     <div class="header">
         <div class="title">
-            <h2>Systock</h2>   
+            <h2>Systock</h2>
         </div>
         <div class="left-b">
             <a href="/">Desonectar</a>
@@ -24,6 +24,7 @@
     <div class="body">
         <h1>Itens</h1>
         <div class="create-b">
+            <a href="/item/relatorio" >Gerar Relatorio</a>
             <a href="/group/create">Grupos</a>
             <a href="/item/create" >Criar Item</a>
         </div>
@@ -52,12 +53,12 @@
                 <td class="name">True</td>
                 @else
                 <td class="name">False</td>
-                @endif  
+                @endif
                 <form action="/item/delete/{{$item->id}}" method="post">
-                    <td class="left-b"> 
+                    <td class="left-b">
                             @csrf @method('DELETE')
                             <button type="submit">Deletar</button>
-                            <a href="/item/edit/{{$item->id}}">Modificar</a>
+                            <a href="/item/edit/{{$item->id}}/{{$user_id}}">Modificar</a>
                     </td>
                 </form>
             </tr>

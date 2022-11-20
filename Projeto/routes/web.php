@@ -16,6 +16,8 @@ use App\Http\Controllers\GestorController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/t', [ItemController::class,'teste']);
+Route::get('/te', [ItemController::class,'teste2']);
 
 Route::get('/', [PessoaController::class,'index']);
 Route::get('/register', [PessoaController::class,'create']);
@@ -23,15 +25,16 @@ Route::post('/item/inside', [PessoaController::class,'item']);
 Route::post('/store', [PessoaController::class,'store']);
 
 Route::prefix('item/')->group(function(){
-    Route::get('', [ItemController::class,'index']);
-    Route::get('list', [ItemController::class,'list']);
-    Route::post('list/update/{id}', [ItemController::class,'changeQuantidade']);
+    Route::get('relatorio', [ItemController::class,'emitirRelatorio']);
+    Route::get('/{user_id}', [ItemController::class,'index']);
+    Route::get('list/{user_id}', [ItemController::class,'list']);
+    Route::post('list/update/{id}/{user_id}', [ItemController::class,'changeQuantidade']);
     Route::get('create', [ItemController::class,'create']);
     Route::post('store', [ItemController::class,'store']);
     Route::delete('delete/{id}', [ItemController::class,'destroy']);
-    Route::get('edit/{id}', [ItemController::class,'edit']);
-    Route::get('show/{id}', [ItemController::class,'show']);
-    Route::post('update/{id}', [ItemController::class,'update']);
+    Route::get('edit/{id}/{user_id}', [ItemController::class,'edit']);
+    Route::get('show/{id}/{user_id}', [ItemController::class,'show']);
+    Route::post('update/{id}/{user_id}', [ItemController::class,'update']);
 });
 
 Route::prefix('group/')->group(function(){

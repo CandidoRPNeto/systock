@@ -14,7 +14,7 @@
 <body>
     <div class="header">
         <div class="title">
-            <h2>Systock</h2>   
+            <h2>Systock</h2>
         </div>
         <div class="left-b">
             <a href="/item/list">Voltar</a>
@@ -33,10 +33,10 @@
             @endif
         @endforeach
         <label class="atributo">Preço: {{$item->preco}}</label>
-        <form action="/item/list/update/{{$item->id}}" method="post">
+        <form action="/item/list/update/{{$item->id}}/{{$user_id}}" method="post">
             @csrf
             <label class="atributo">Quantidade: <input type="number" name="quantidade" class="input-text label-input" value='{{$item->quantidade}}'></label>
-            
+
             <div class="left-b">
                 <button type="submit">Enviar</button>
             </div>

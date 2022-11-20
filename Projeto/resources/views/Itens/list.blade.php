@@ -14,7 +14,7 @@
 <body>
      <div class="header">
         <div class="title">
-            <h2>Systock</h2>   
+            <h2>Systock</h2>
         </div>
         <div class="left-b">
             <a href="/">Desonectar</a>
@@ -35,7 +35,7 @@
             <tr class="item-lista">
                 <td class="name">{{$item->nome}}</td>
                 <td class="name">{{$item->preco}}</td>
-                <td class="name">{{$item->quantidade}}</td> 
+                <td class="name">{{$item->quantidade}}</td>
                 @foreach ($grupos as $grupo)
                 @if($grupo->id === $item->grupo_item_id)
                 <td class="name">{{$grupo->nome}}</td>
@@ -44,7 +44,7 @@
                 @endif
                 @endforeach
                 <td class="left-b">
-                        <a href="/item/show/{{$item->id}}">Modificar</a>
+                        <a href="/item/show/{{$item->id}}/{{$user_id}}">Modificar</a>
                 </td>
             </tr>
             @endforeach

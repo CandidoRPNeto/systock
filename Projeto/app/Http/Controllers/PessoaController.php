@@ -24,7 +24,7 @@ class PessoaController extends Controller
         $user = Gestor::where('email',$request->email)->first();
         if (!is_null($user)){
             if ($user->senha == $request->senha)
-                return redirect('/item/');
+                return redirect('/item/'.$user->id);
         }
         $user = Empresa::where('email',$request->email)->first();
         if (!is_null($user)){
@@ -34,7 +34,7 @@ class PessoaController extends Controller
         $user = Usuario::where('email',$request->email)->first();
         if (!is_null($user)){
             if ($user->senha == $request->senha)
-                return redirect('/item/list');
+                return redirect('/item/list/'.$user->id);
         }
         return redirect('/');
     }
